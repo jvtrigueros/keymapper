@@ -11,7 +11,7 @@
 
 // Merge all default sections into the .text (code) section.
 #pragma comment(linker,"/MERGE:.rdata=.data")
-#pragma comment(linker,"/MERGE:.text=.data")
+//#pragma comment(linker,"/MERGE:.text=.data")
 
 #pragma comment(lib, "msvcrt.lib")
 
@@ -83,10 +83,10 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 			switch (wParam)
 			{
 			case WM_KEYDOWN:
-				keybd_event(VK_BACK, 0x8e, 0, 0);
+				keybd_event(VK_CONTROL, 0x8e, 0, 0);
 				return 1;
 			case WM_KEYUP:
-				keybd_event(VK_BACK, 0x8e, KEYEVENTF_KEYUP, 0);
+				keybd_event(VK_CONTROL, 0x8e, KEYEVENTF_KEYUP, 0);
 				return 1;
 			}
 		}
